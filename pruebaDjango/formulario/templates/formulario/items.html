@@ -22,13 +22,13 @@
     <header class="menu-fixed">
         <div class="bordmenu">
             <script src="java/script.js"></script>
-            <div class="topnav" id="myTopnav">
-                <a href="{% url 'home' %}" class="active"><img href=" {% static 'img/icons_logo.png' %} " alt="" width="25px"> XARTGORD</a>
-                <a href="personajes.html">PERSONAJES</a>
-                <a href="{% url 'items' %}">ITEMS</a>
-                <a href="enemigos.html">ENEMIGOS</a>
-                <a href="contact.html">CONTACTANOS</a>
-                <a href="mercancia.html">PRODUCTOS</a>
+            <div class="topnav " id="myTopnav">
+                <a class="active" class="indemenu" href="{% url 'home' %}"><img src="{% static 'img/icons_logo.png' %}" width="25px"> XARTGORD </a>
+                <a class="indemenu" href="personajes.html">PERSONAJES</a>
+                <a class="indemenu" href="{% url 'items' %}">ITEMS</a>
+                <a class="indemenu" href="enemigos.html">ENEMIGOS</a>
+                <a class="indemenu" href="contact.html">CONTACTANOS</a>
+                <a class="indemenu" href="mercancia.html">PRODUCTOS</a>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
                 </a>
