@@ -29,9 +29,9 @@
         <div class="bordmenu">
             <script src="java/script.js"></script>
             <div class="topnav" id="myTopnav">
-                <a href="index.html" class="active"><img href=" {% static 'img/icons_logo.png' %} " alt="" width="25px"> XARTGORD</a>
+                <a href="{% url 'home' %}" class="active"><img href=" {% static 'img/icons_logo.png' %} " alt="" width="25px"> XARTGORD</a>
                 <a href="personajes.html">PERSONAJES</a>
-                <a href="items.html">ITEMS</a>.
+                <a href="{% url 'items' %}">ITEMS</a>.
                 <a href="enemigos.html">ENEMIGOS</a>
                 <a href="contact.html">CONTACTANOS</a>
                 <a href="mercancia.html">PRODUCTOS</a>

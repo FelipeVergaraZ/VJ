@@ -3,7 +3,7 @@ from .views import home, items
 
 
 urlpatterns = [
-    path('index.html',home,name='home'),
-    path('items.html',items,name='items'),
+    path('',home,name='home'),
+    path('items/',items,name='items')
 ]
 
