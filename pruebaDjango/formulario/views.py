@@ -14,9 +14,11 @@ def enemigos(request):
     return render(request, 'xartgord/enemigos.html')
 
 def contact(request):
-    return render(request, 'xartgord/contact.html')
+    context= {"nombre":"AAAAAAAAAAAAA","usuario":"admin"}
+    return render(request, 'xartgord/contact.html', context)
 
 def mercancia(request):
     return render(request, 'xartgord/mercancia.html')
+
 
 
