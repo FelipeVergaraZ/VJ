@@ -19,4 +19,11 @@ def contact(request):
 def mercancia(request):
     return render(request, 'xartgord/mercancia.html')
 
+def armas(request):
+    return render(request, 'xartgord/armas.html')
 
+def armaduras(request):
+    return render(request, 'xartgord/armaduras.html')
+
+def objetos(request):
+    return render(request, 'xartgord/objetos.html')

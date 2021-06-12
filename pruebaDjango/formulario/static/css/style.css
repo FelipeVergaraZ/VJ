@@ -508,6 +508,15 @@ input:focus:invalid {
     background-color: rgba(0, 0, 0, 0.77);
 }
 
+.jumbotrontene2 {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: inherit;
+    background-color: rgba(0, 0, 0, 0.77);
+}
+
 .sobreene {
     padding: 3px 10px;
     border: rgb(0, 0, 0) 5px solid;
@@ -617,15 +626,15 @@ input:focus:invalid {
     padding: 10px;
     margin-top: 10px;
     text-decoration: none;
-    color: #2fb4cc;
-    border: 1px solid #2fb4cc;
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
     border-radius: 4px;
     transition: all 400ms ease;
     margin-bottom: 5px;
 }
 
 .card .contenido-card a:hover {
-    background: #2fb4cc;
+    background: #4CAF50;
     color: #fff;
 }
 
@@ -644,4 +653,49 @@ input:focus:invalid {
 }
 
 
-/*producto*/
+/*hora*/
+
+.list-hours {
+    font-size: 0.9rem;
+}
+
+.list-hours .list-hours-item {
+    border-bottom: 1px solid rgba(230, 167, 86, 0.5);
+    padding-bottom: 0.25rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.list-hours .list-hours-item.today {
+    font-weight: bold;
+    color: #e6a756;
+}
+
+@media (min-width: 992px) {
+    .list-hours {
+        width: 50%;
+        font-size: 1.1rem;
+    }
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+}
+
+.list-inline-item {
+    display: inline-block;
+}
+
+.list-inline-item:not(:last-child) {
+    margin-right: 0.5rem;
+}
+
+.ms-auto {
+    margin-left: auto !important;
+}
