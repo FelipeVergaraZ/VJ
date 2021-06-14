@@ -21,14 +21,24 @@ def enemigos(request):
     return render(request, 'xartgord/enemigos.html')
 
 def contact(request):
-    context= {"nombre":"AAAAAAAAAAAAA","usuario":"admin"}
-    return render(request, 'xartgord/contact.html', context)
+    return render(request, 'xartgord/contact.html')
 
 def mercancia(request):
     return render(request, 'xartgord/mercancia.html')
 
+def armas(request):
+    return render(request, 'xartgord/armas.html')
+
+def armaduras(request):
+    return render(request, 'xartgord/armaduras.html')
+
+def objetos(request):
+    return render(request, 'xartgord/objetos.html')
+
 def form_mercancia(request):
+    mercancia = Mercancia.objects.all()
     datos = {
+        'mercancia':mercancia,
         'form':MercanciaForm()
     }
 

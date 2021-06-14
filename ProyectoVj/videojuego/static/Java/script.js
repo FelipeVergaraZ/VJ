@@ -28,13 +28,13 @@ function validar() {
         alert("Falta llenar el mensaje");
         return false;
     }
-    console.log (email, 'hola');
+    console.log(email, 'hola');
     email.send({
-        
+
     })
 
 
-    
+
 
 
 
@@ -51,3 +51,8 @@ function iniciarMap() {
         map: map
     });
 }
+
+window.addEventListener('DOMContentLoaded', event => {
+    const listHoursArray = document.body.querySelectorAll('.list-hours li');
+    listHoursArray[new Date().getDay()].classList.add(('today'));
+})

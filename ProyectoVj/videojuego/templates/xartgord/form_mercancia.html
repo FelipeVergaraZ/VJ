@@ -21,7 +21,8 @@
         </video>
     <header class="menu-fixed">
         <div class="bordmenu">
-            <script src="java/script.js"></script>
+            <script src="{% static 'java/script.js' %}"></script>
+
             <div class="topnav " id="myTopnav">
                 <a class="active" class="indemenu" href="{% url 'home' %}"><img src="{% static 'img/icons_logo.png' %}" width="25px"> XARTGORD </a>
                 <a class="indemenu" href="{% url 'personajes' %}">PERSONAJES</a>
@@ -39,25 +40,55 @@
     <br>
     <br>
     <br>
+
     <section>
         <br>
+
         <div class="container">
-            <div class="row">
-                <form method="post" action="" id=formulario>
-                    {% csrf_token%}
+            <div class="jumbotronblack2">
 
-                    <div class="form_group">
-                        {{form.as_table}}
+                <table border="1">
+                    <h1 class="titulotabla">Lista de mercancia</h1>
+                    <thead>
+                        <tr>
+                            <th>id de producto</th>
+                            <th>nombre del producto</th>
+                            <th>stock del producto</th>
+                            <th>precio del producto</th>
+                        </tr>
+                    </thead>
+                    {% for mer in mercancia%}
+                    <tr>
+                        <td>{{mer.idproducto}}</td>
+                        <td>{{mer.nombreproducto}}</td>
+                        <td>{{mer.stockproducto}}</td>
+                        <td>{{mer.precioproducto}}</td>
+                    </tr>
+                    {% endfor%}
 
-                    </div>
+                </table>
+                <br>
+                <div class="row">
+                    <form method="post" action="" id=formulario class="formomarco">
+                        {% csrf_token%}
 
-                    <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
-                    <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
-                    <div id="error" class="alert alert-danger" role="alert"></div>
-                    <div id="error" class="alert alert-succes" role="alert">
-                        {{mensaje}}
-                    </div>
-                </form>
+                        <div class="form_group">
+                            {{form.as_table}}
+
+                        </div>
+                        <br>
+
+                        <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
+                        <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+
+
+                        <div id="error" class="alert alert-succes" role="alert">
+                            {{mensaje}}
+                        </div>
+
+
+                    </form>
+                </div>
             </div>
         </div>
         </div>
@@ -73,7 +104,7 @@
                 <p class="text-center ">Loremm ipsum dolor sit amet consectetur adipisicing elit. Explicabo quos eveniet, voluptate modi delectus optio ipsam, consectetur ad iste fugiat libero eligendi repellat, esse hic commodi atque quia inventore officiis!</p>
                 <br>
                 <div class="iconoo">
-                    <div class="iconoo" class=""><img class="rounded img-fluid" src="img/iconoo.png"></div>
+                    <div class="iconoo" class=""><img class="rounded img-fluid" src="{% static 'img/iconoo.png' %}"></div>
                 </div>
                 <div class="container">
                     <div>
@@ -81,18 +112,20 @@
                             <div class="col-lg-6 order-lg-1">
                                 <div class="p-5">
                                     <a class="nav-link"><a class="colti" href="https://www.instagram.com/?hl=es-la"  target="blank">Instragram</a>
-                                    <img class="ico" src="img/icons8-instagram.gif" width="30px" />
+                                    <img class="ico" src=" {% static 'img/icons8-instagram.gif' %} " width="30px" />
                                     <a class="nav-link"><a class="colti" href="https://www.facebook.com" target="blank" >Facebook</a>
-                                    <img class="ico" src="img/icons8-facebook-rodeado-de-círculo.gif" width="30px" />
+                                    <img class="ico" src=" {% static 'img/icons8-facebook-rodeado-de-círculo.gif'%}" width="30px" />
                                     <a class="nav-link"><a class="colti" href="https://web.whatsapp.com" target="blank" >Whatsapp</a>
-                                    <img class="ico" src="img/icons8-whatsapp.gif" width="20px" />
+                                    <img class="ico" src=" {% static 'img/icons8-whatsapp.gif' %} " width="20px" />
                                     <a class="nav-link"><a class="colti" href="https://twitter.com" target="blank">twitter</a>
-                                    <img class="ico" src="img/icons8-twitter.gif" width="30px" />
+                                    <img class="ico" src=" {% static 'img/icons8-twitter.gif' %} " width="30px" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </footer>
     </div>
