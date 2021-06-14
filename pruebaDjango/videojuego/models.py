@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+
 class Rango(models.Model):
     idRango = models.IntegerField(primary_key=True,verbose_name='Id de Rango')
     nombreRango= models.CharField(max_length=50,verbose_name='Nombre deL Rango')

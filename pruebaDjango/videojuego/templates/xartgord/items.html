@@ -43,11 +43,11 @@
             <div class="jumbotronblack ">
                 <div class="row align-items-center">
                     <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="rounded img-fluid" src="img/items/Items.png"></div>
+                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/items.png' %}"></div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
-                            <h3 class="display-4" role="presentation"><a class="nav-link"><a class="text-black" href="objetos.html">OBJETOS</a></h3>
+                            <h3 class="display-4" role="presentation"><a class="nav-link"><a class="text-black" href="{% url 'objetos' %}">OBJETOS</a></h3>
                             <p>Lorem ipsum dolorr sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae
                                 obcaecati.
                             </p>
@@ -64,11 +64,11 @@
             <div class="jumbotron1black  ">
                 <div class="row align-items-center">
                     <div class="col-lg-6 order-lg-1">
-                        <div class="p-5"><img class="rounded img-fluid" src="img/items/Armaduras.png"></div>
+                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/armaduras.png' %}"></div>
                     </div>
                     <div class="col-lg-6 order-lg-2">
                         <div class="p-5">
-                            <h2 class="display-4" role="presentation"><a class="nav-link"><a class="text-black" href="armaduras.html">ARMADURAS</a></h2>
+                            <h2 class="display-4" role="presentation"><a class="nav-link"><a class="text-black" href="{% url 'armaduras' %}">ARMADURAS</a></h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae
                                 obcaecati.
                             </p>
@@ -85,12 +85,12 @@
             <div class="jumbotronblack ">
                 <div class="row align-items-center">
                     <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="rounded img-fluid" src="img/items/Armas.png"></div>
+                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/armas.png' %}"></div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
 
-                            <h1 class="display-4" role="presentation"><a class="nav-link"><a class="text-black" href="armas.html">ARMAS</a></h1>
+                            <h1 class="display-4" role="presentation"><a class="nav-link"><a class="text-black" href="{% url 'armas' %}">ARMAS</a></h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae
                                 obcaecati.
                             </p>
@@ -104,11 +104,12 @@
     <section class="masthead text-center text-white">
         <div class="masthead-content">
             <div class="container">
-                <h2 class="masthead-subheading mb-0"></h2><a class="btn btn-primary btn-xl rounded-pill mt-5" role="button" href="#">   Arriba   </a></div>
+                <h2 class="masthead-subheading mb-0"></h2><a class="btn bottoncolor btn-xl rounded-pill mt-5" role="button" href="#">   Arriba   </a></div>
         </div>
     </section>
     <br>
-    <hr>
+    <hr class="bordhr">
+    <br>
     <div class="jumbotronfinal">
         <footer class="py-5 bg-black">
             <div class="container">
@@ -116,7 +117,7 @@
                 <p class="text-center ">Loremm ipsum dolor sit amet consectetur adipisicing elit. Explicabo quos eveniet, voluptate modi delectus optio ipsam, consectetur ad iste fugiat libero eligendi repellat, esse hic commodi atque quia inventore officiis!</p>
                 <br>
                 <div class="iconoo">
-                    <div class="iconoo" class=""><img class="rounded img-fluid" src="img/iconoo.png"></div>
+                    <div class="iconoo" class=""><img class="rounded img-fluid" src="{% static 'img/iconoo.png' %}"></div>
                 </div>
                 <div class="container">
                     <div>
