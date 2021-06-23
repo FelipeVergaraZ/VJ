@@ -5,7 +5,7 @@ from .views import enemigos, mercancia
 from .views import armaduras, armas, home
 from .views import personajes, contact, items
 from .views import enemigos, mercancia, objetos
-from .views import form_mercancia
+from .views import form_mercancia, form_mod_mercancia
 
 urlpatterns = [
     path('',home,name='home'),
@@ -17,7 +17,8 @@ urlpatterns = [
     path('armas/',armas,name='armas'),
     path('mercancia/',mercancia,name='mercancia'),
     path('items/',items,name='items'),
-    path('form_mercancia/',form_mercancia,name='form_mercancia')
+    path('form_mercancia/',form_mercancia,name='form_mercancia'),
+    path('modificar-mercancia/<id>',form_mod_mercancia,name='form_mod_mercancia')
     
     
 ]

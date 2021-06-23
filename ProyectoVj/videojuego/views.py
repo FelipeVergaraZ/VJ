@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Mercancia
 from django import forms
 from .forms import MercanciaForm
@@ -36,16 +36,50 @@ def objetos(request):
     return render(request, 'xartgord/objetos.html')
 
 def form_mercancia(request):
+
     mercancia = Mercancia.objects.all()
     datos = {
         'mercancia':mercancia,
         'form':MercanciaForm()
     }
 
+
     if (request.method == 'POST'):
         formulario=MercanciaForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            datos['mensaje'] = 'Guardados correctamente'
-    return render(request, 'xartgord/form_mercancia.html',datos)
+            datos['mensaje'] = 'Datos Guardados correctamente'
+    
+    return render(request, 'xartgord/form_mercancia.html',datos)   
+
+
+def form_mod_mercancia(request, id):
+    mercancia = Mercancia.objects.get(idproducto=id)
+    datos = {
+        'form':MercanciaForm(instance=mercancia)
+    }
+
+    if (request.method == 'POST'):
+
+        formulario=MercanciaForm(data=request.POST, instance=mercancia)
+
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje']= 'Datos modificados correctamente'
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
 

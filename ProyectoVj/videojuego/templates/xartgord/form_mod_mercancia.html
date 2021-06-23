@@ -44,54 +44,24 @@
     <section>
         <br>
 
-        <div class="container">
-            <div class="jumbotronblack2">
+        <div class="row">
+            <form method="post" action="" id="formulario">
+                {% csrf_token %}
 
-                <table border="1">
-                    <h1 class="titulotabla">Lista de mercancia</h1>
-                    <thead>
-                        <tr>
-                            <th>id de producto</th>
-                            <th>nombre del producto</th>
-                            <th>stock del producto</th>
-                            <th>precio del producto</th>
-                            <th scope="col">Modificar</th>
-                        </tr>
-                    </thead>
-                    {% for mer in mercancia%}
-                    <tr>
-                        <td>{{mer.idproducto}}</td>
-                        <td>{{mer.nombreproducto}}</td>
-                        <td>{{mer.stockproducto}}</td>
-                        <td>{{mer.precioproducto}}</td>
-                    </tr>
-                    {% endfor%}
+                <div class="form_group">
+                    {{form.as.table}}
 
-                </table>
-                <br>
-                <div class="row">
-                    <form method="post" action="" id=formulario class="formomarco">
-                        {% csrf_token%}
-
-                        <div class="form_group">
-                            {{form.as_table}}
-
-                        </div>
-                        <br>
-
-                        <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
-                        <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
-
-
-                        <div id="error" class="alert alert-succes" role="alert">
-                            {{mensaje}}
-                        </div>
-
-
-                    </form>
                 </div>
-            </div>
-        </div>
+                <input type="submit" class="btn btn-danger" id="enviar" value="Modificar">
+                <input type="submit" class="btn btn-danger" id="Limpiar" value="limpiar">
+                <div id="error" class="alert alert-success" role="alert"></div>
+                {{mensaje}}
+
+
+
+
+            </form>
+
         </div>
 
     </section>
