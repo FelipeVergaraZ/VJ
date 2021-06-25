@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
 
@@ -42,15 +41,14 @@
     <br>
 
     <section>
-        <br>
-
+        <br> {% load humanize %}
         <div class="container">
             <div class="jumbotronblack2">
-
                 <table border="1">
                     <h1 class="titulotabla">Lista de mercancia</h1>
                     <thead>
                         <tr>
+                            <th>imagen</th>
                             <th>id de producto</th>
                             <th>nombre del producto</th>
                             <th>stock del producto</th>
@@ -58,12 +56,16 @@
                         </tr>
                     </thead>
                     {% for mer in mercancia%}
-                    <tr>
-                        <td>{{mer.idproducto}}</td>
-                        <td>{{mer.nombreproducto}}</td>
-                        <td>{{mer.stockproducto}}</td>
-                        <td>{{mer.precioproducto}}</td>
-                    </tr>
+                    <section>
+
+                        <tr>
+                            <td>{{mer.Imagen }}</td>
+                            <td>{{mer.idproducto }}</td>
+                            <td>{{mer.nombreproducto | capfirst}}</td>
+                            <td>{{mer.stockproducto}}</td>
+                            <td>${{mer.precioproducto}}</td>
+                        </tr>
+                    </section>
                     {% endfor%}
 
                 </table>

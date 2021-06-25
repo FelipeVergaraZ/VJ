@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
     ]
-
+    
     operations = [
         migrations.CreateModel(
             name='Mercancia',
@@ -19,6 +19,7 @@ class Migration(migrations.Migration):
                 ('nombreproducto', models.CharField(max_length=20, verbose_name='Nombre del Producto')),
                 ('stockproducto', models.IntegerField(verbose_name='Stock del producto')),
                 ('precioproducto', models.IntegerField(verbose_name='Precio del producto')),
+                ('imagen',models.ImageField(null=True, upload_to='Imagen')), 
             ],
         ),
         migrations.CreateModel(
@@ -36,5 +37,12 @@ class Migration(migrations.Migration):
                 ('contraseñausuario', models.CharField(max_length=20, verbose_name='Contraseña del usuario')),
                 ('rango', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='videojuego.rango')),
             ],
+        ),
+    ]
+operations = [
+        migrations.AddField(
+            model_name='mercancia',
+            name='imagen',
+            field=models.ImageField(null=True, upload_to='mercancias'),
         ),
     ]
