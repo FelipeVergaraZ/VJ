@@ -647,7 +647,7 @@ input:focus:invalid {
 /*producto*/
 
 table {
-    background-color: white;
+    background-color: rgb(124, 123, 123);
     text-align: left;
     border-collapse: collapse;
     width: 100%;
@@ -693,4 +693,10 @@ tr:hover td {
     background-color: rgba(224, 223, 223, 0.883);
     width: 100%;
     padding: 40px;
+}
+
+.rojoeliminar {
+    color: #900;
+    background-color: #900;
+    color: inherit;
 }

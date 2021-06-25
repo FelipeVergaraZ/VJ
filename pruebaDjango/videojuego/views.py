@@ -35,6 +35,9 @@ def armaduras(request):
 def objetos(request):
     return render(request, 'xartgord/objetos.html')
 
+def cuenta(request):
+    return render(request, 'xartgord/cuenta.html')
+
 def form_mercancia(request):
 
     mercancia = Mercancia.objects.all()
@@ -86,7 +89,7 @@ def form_eliminar(request, id):
     mercancia = Mercancia.objects.get(idproducto=id)
     mercancia.delete()
 
-    return redirect(to='xartgord/form_mercancia.html')
+    return redirect(to='form_mercancia')
 
 
 

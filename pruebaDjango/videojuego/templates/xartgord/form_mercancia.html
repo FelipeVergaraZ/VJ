@@ -45,15 +45,16 @@
         <div class="container">
             <div class="jumbotronblack2">
                 <table border="1">
-                    <h1 class="titulotabla">Lista de mercancia</h1>
+                    <h1 class="titulotabla">LISTA DE PRODUCTOS</h1>
                     <thead>
                         <tr>
-                            <th>imagen</th>
-                            <th>id de producto</th>
-                            <th>nombre del producto</th>
-                            <th>stock del producto</th>
-                            <th>precio del producto</th>
-                            <th>opciones</th>
+                            <th>Imagen</th>
+                            <th>Id de producto</th>
+                            <th>Nombre del producto</th>
+                            <th>Stock del producto</th>
+                            <th>Precio del producto</th>
+                            <th cope="col">Modificar</th>
+                            <th cope="col">Eliminar</th>
                         </tr>
                     </thead>
                     {% for mer in mercancia%}
@@ -67,6 +68,8 @@
                             <td>{{mer.nombreproducto | capfirst}}</td>
                             <td>{{mer.stockproducto}}</td>
                             <td>${{mer.precioproducto}}</td>
+                            <td><a class="rojoeliminar" href="{% url 'form_modifimerca' mer.idproducto  %}">Modificar</a></td>
+                            <td><a class="rojoeliminar" href="{% url 'form_eliminar' mer.idproducto  %}">elimimar</a></td>
                         </tr>
                     </section>
                     {% endfor%}
@@ -89,15 +92,14 @@
                         <div id="error" class="alert alert-succes" role="alert">
                             {{mensaje}}
                         </div>
-
-
                     </form>
                 </div>
+
             </div>
-        </div>
         </div>
 
     </section>
+
     <hr class="bordhr">
     <br>
 
@@ -128,8 +130,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </footer>
     </div>
