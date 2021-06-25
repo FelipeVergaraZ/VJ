@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'videojuego',
     'django.contrib.humanize',
+    
+
 ]
 
 MIDDLEWARE = [

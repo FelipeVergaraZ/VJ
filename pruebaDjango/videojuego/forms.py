@@ -7,3 +7,5 @@ class MercanciaForm(ModelForm):
         model = Mercancia
         fields = ['idproducto','nombreproducto','stockproducto','precioproducto','imagen',]
         
+
+        
