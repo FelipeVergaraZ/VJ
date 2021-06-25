@@ -53,7 +53,8 @@
                             <th>nombre del producto</th>
                             <th>stock del producto</th>
                             <th>precio del producto</th>
-                            <th>opciones</th>
+                            <th scope="col">modificar</th>
+                            <th scope="col">eliminarr</th>
                         </tr>
                     </thead>
                     {% for mer in mercancia%}
@@ -67,6 +68,12 @@
                             <td>{{mer.nombreproducto | capfirst}}</td>
                             <td>{{mer.stockproducto}}</td>
                             <td>${{mer.precioproducto}}</td>
+                            <td>
+                                <a href="{% url 'form_modifimerca' mer.mercancia %}"></a>
+                            </td>
+                            <td>
+                                <a href="{% url 'form_modifimerca' mer.mercancia %}"></a>
+                            </td>
                         </tr>
                     </section>
                     {% endfor%}
@@ -82,7 +89,7 @@
 
                         </div>
                         <br>
-                        <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
+                        <input type="submit" class="btn btn-danger" id="enviar" value="modificar">
                         <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
 
 
