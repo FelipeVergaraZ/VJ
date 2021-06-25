@@ -25,7 +25,7 @@ class Mercancia(models.Model):
     nombreproducto=models.CharField(max_length=20,verbose_name='Nombre del Producto')
     stockproducto=models.IntegerField(verbose_name='Stock del producto')
     precioproducto=models.IntegerField(verbose_name='Precio del producto')
-    imagen=models.ImageField(upload_to='Imagen',null=True) 
+    imagen=models.ImageField(upload_to='Imagenes',null=True) 
 def __str__(self):
     return self.nombreproducto
 
