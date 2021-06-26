@@ -700,3 +700,8 @@ tr:hover td {
     background-color: #900;
     color: inherit;
 }
+
+.inicioderecha {
+    position: relative;
+    text-align: right
+}

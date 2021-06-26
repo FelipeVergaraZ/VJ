@@ -38,6 +38,8 @@ def objetos(request):
 def cuenta(request):
     return render(request, 'xartgord/cuenta.html')
 
+
+
 def form_mercancia(request):
 
     mercancia = Mercancia.objects.all()
