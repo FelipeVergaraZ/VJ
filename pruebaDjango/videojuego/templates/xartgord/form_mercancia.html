@@ -46,7 +46,7 @@
     .formomar2 {
         margin-top: 50px;
         width: 100%;
-        background: white;
+        background: rgba(0, 0, 0, 0.767);
         padding-top: 50px;
         padding-bottom: 50px;
         border: 5px solid #4CAF50;
@@ -61,6 +61,7 @@
         background: rgb(255, 255, 255);
         text-align: center;
         margin-bottom: -5px;
+        border: 5px solid #246355;
     }
     
     .formulario:hover {
@@ -199,7 +200,7 @@
     <section class="container">
         <div class="">
             <div class="formomar2">
-                <form method="post" action="" id=formulario class="container formomar3 ">
+                <form enctype="multipart/form-data" method="post" action="" id=formulario class="container formomar3 ">
                     <div class="formomar">
                         {% csrf_token%} {{form.as_table}}
 

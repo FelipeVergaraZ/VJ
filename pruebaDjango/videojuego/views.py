@@ -49,11 +49,13 @@ def form_mercancia(request):
         'form':MercanciaForm()
     }
     if (request.method == 'POST'):
-        formulario=MercanciaForm(request.POST)
+        formulario=MercanciaForm(request.POST, request.FILES)
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Datos Guardados correctamente'
-    
+        else:
+            formulario=MercanciaForm()
+            datos['mensaje'] = 'ERROR: no se puedo guardar el producto, intentelo mas tarde'
     return render(request, 'xartgord/form_mercancia.html',datos) 
 
 def form_modifimerca(request, id):
@@ -62,19 +64,20 @@ def form_modifimerca(request, id):
         'form':MercanciaForm(instance=mercancia)
     }
     if(request.method == 'POST'):
-        formulario = MercanciaForm(data=request.POST, instance=mercancia)
+        formulario = MercanciaForm(request.POST, request.FILES, instance=mercancia)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request,"Modificado correctamente")
-
             datos['mensaje'] = 'Modificado correctamente'
+        else:
+            formulario=MercanciaForm()
+            datos['mensaje'] = 'ERROR: no se puedo guardar el producto, intentelo mas tarde'
     return render(request, 'xartgord/form_modifimerca.html',datos)  
 
 
 def form_eliminar(request, id):
     mercancia = Mercancia.objects.get(idproducto=id)
     mercancia.delete()
-    messages.success(request,"Eliminado correctamente")
+    
     return redirect(to='form_mercancia')
 
 
