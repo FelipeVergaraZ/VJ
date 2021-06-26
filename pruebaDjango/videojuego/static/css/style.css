@@ -647,7 +647,7 @@ input:focus:invalid {
 /*producto*/
 
 table {
-    background-color: rgb(124, 123, 123);
+    background-color: rgb(255, 255, 255);
     text-align: left;
     border-collapse: collapse;
     width: 100%;
@@ -662,6 +662,7 @@ thead {
     background-color: #246355;
     border-bottom: solid 5px #0F362D;
     color: white;
+    width: 100%;
 }
 
 tr:nth-child(even) {
@@ -677,14 +678,6 @@ tr:hover td {
     text-align: center;
 }
 
-.formomarco {
-    width: 100%;
-    border: rgb(0, 0, 0) 5px double;
-    color: inherit;
-    overflow: hidden;
-    background-color: rgb(255, 255, 255);
-}
-
 .jumbotronblack2 {
     border: rgb(0, 0, 0) 5px solid;
     border-top-left-radius: 20px;
@@ -697,11 +690,33 @@ tr:hover td {
 
 .rojoeliminar {
     color: #900;
-    background-color: #900;
-    color: inherit;
+}
+
+.verdeeditar {
+    color: rgb(22, 177, 2);
 }
 
 .inicioderecha {
     position: relative;
     text-align: right
+}
+
+.formomarco {
+    width: 100%;
+    border: rgb(0, 0, 0) 5px double;
+    color: inherit;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+.listaproducto {
+    width: 100%;
+    border: rgb(0, 0, 0) 5px double;
+    color: inherit;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    padding-top: 30px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    margin-bottom: 40px;
 }

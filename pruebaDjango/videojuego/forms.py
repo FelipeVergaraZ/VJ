@@ -5,7 +5,7 @@ from .models import Mercancia
 class MercanciaForm(ModelForm):
     class Meta:
         model = Mercancia
-        fields = ['idproducto','nombreproducto','stockproducto','precioproducto','imagen',]
+        fields = ['idproducto','nombreproducto','stockproducto','precioproducto','imagen']
         
 
         

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Mercancia
 from django import forms
 from .forms import MercanciaForm
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -83,6 +84,8 @@ def form_modifimerca(request, id):
         formulario = MercanciaForm(data=request.POST, instance=mercancia)
         if formulario.is_valid():
             formulario.save()
+            messages.success(request,"Modificados correctamente")
+
             datos['mensaje'] = 'Modificados correctamente'
     return render(request, 'xartgord/form_modifimerca.html',datos)  
 
@@ -90,7 +93,7 @@ def form_modifimerca(request, id):
 def form_eliminar(request, id):
     mercancia = Mercancia.objects.get(idproducto=id)
     mercancia.delete()
-
+    messages.success(request,"Eliminado correctamente")
     return redirect(to='form_mercancia')
 
 
