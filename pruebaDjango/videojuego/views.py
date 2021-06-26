@@ -48,32 +48,13 @@ def form_mercancia(request):
         'mercancia':mercancia,
         'form':MercanciaForm()
     }
-
-
     if (request.method == 'POST'):
         formulario=MercanciaForm(request.POST)
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Datos Guardados correctamente'
     
-    return render(request, 'xartgord/form_mercancia.html',datos)   
-
-
-def form_mod_mercancia(request, id):
-    mercancia = Mercancia.objects.get(idproducto=id)
-    datos = {
-        'form':MercanciaForm(instance=mercancia)
-    }
-
-    if (request.method == 'POST'):
-
-        formulario=MercanciaForm(data=request.POST, instance=mercancia)
-
-        if formulario.is_valid():
-            formulario.save()
-            datos['mensaje']= 'Datos modificados correctamente'
-
-        return render(request, 'xartgord/form_mercancia.html',datos)  
+    return render(request, 'xartgord/form_mercancia.html',datos) 
 
 def form_modifimerca(request, id):
     mercancia = Mercancia.objects.get(idproducto=id)
@@ -84,9 +65,9 @@ def form_modifimerca(request, id):
         formulario = MercanciaForm(data=request.POST, instance=mercancia)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request,"Modificados correctamente")
+            messages.success(request,"Modificado correctamente")
 
-            datos['mensaje'] = 'Modificados correctamente'
+            datos['mensaje'] = 'Modificado correctamente'
     return render(request, 'xartgord/form_modifimerca.html',datos)  
 
 

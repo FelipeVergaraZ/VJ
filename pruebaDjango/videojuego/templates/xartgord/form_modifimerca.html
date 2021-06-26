@@ -82,22 +82,23 @@
                 <br>
                 <div class="row">
                     <form method="post" action="" id=formulario class="formomarco">
+
                         {% csrf_token%}
 
                         <div class="form_group">
+
                             {{form.as_table}}
 
                         </div>
                         <br>
+
                         <input type="submit" class="btn btn-danger" id="enviar" value="modificar" href="{% url 'form_mercancia' %}">
                         <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
-
-
                         <div id="error" class="alert alert-succes" role="alert">
+
                             {{mensaje}}
+
                         </div>
-
-
                     </form>
                 </div>
             </div>
