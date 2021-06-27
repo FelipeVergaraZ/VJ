@@ -77,13 +77,11 @@ def form_modifimerca(request, id):
 def form_eliminar(request, id):
     mercancia = Mercancia.objects.get(idproducto=id)
     mercancia.delete()
-    
+
     return redirect(to='form_mercancia')
 
 
-
-
-
+###########################
 
 
 
