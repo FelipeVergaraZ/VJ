@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
 
@@ -40,79 +39,76 @@
     <br>
     <br>
     <br>
+
     <section>
-        <br>
         <div class="container">
-            <div class="jumbotron00">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/icons8-mensaje-relleno-100.png' %}" width="200px"></div>
-                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/nosotres.png' %}" width="300px"></div>
-                    </div>
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="p-5">
-                            <br>
-                            <div>
-                                <form name="myForm" class="marcocontacto" action="return " onsubmit="return validar()" method="post">
+            <div class="jumbotronblack2">
+                <table border="1">
+                    <h1 class="titulotabla">Lista de mercancia</h1>
+                    <thead>
+                        <tr>
+                            <th>imagen</th>
+                            <th>id de producto</th>
+                            <th>nombre del producto</th>
+                            <th>stock del producto</th>
+                            <th>precio del producto</th>
+                            <th scope="col">modificar</th>
+                            <th scope="col">eliminarr</th>
+                        </tr>
+                    </thead>
+                    {% for mer in mercancia%}
+                    <section>
 
-                                    <div class="pepe">
-                                        <div class=" jumbotrontitulo">
-                                            <h2 class="">CONTACTANOS</h2>
-                                        </div>
-                                        <br>
-                                        <label for="username"></label><br>
+                        <tr>{% if mer.imagen %}
+                            <td><img src="{{mer.imagen.url }}" alt="" width="100" height="100"></td>
+                            {% endif %}
 
-                                        <p class=" jumbotrontext">USUARIO:</p>
-                                        <input class="blanco" type="text" id="username" name="username" pattern="[a-z0-9._%+-]{4,20}" placeholder="Usuario"><br>
+                            <td>{{mer.idproducto }}</td>
+                            <td>{{mer.nombreproducto | capfirst}}</td>
+                            <td>{{mer.stockproducto}}</td>
+                            <td>${{mer.precioproducto}}</td>
+                            <td>
+                                <a href="{% url 'form_modifimerca' mer.mercancia %}"></a>
+                            </td>
+                            <td>
+                                <a href="{% url 'form_modifimerca' mer.mercancia %}"></a>
+                            </td>
+                        </tr>
+                    </section>
+                    {% endfor%}
 
-                                        <label for="email"></label><br>
-                                        <P class=" jumbotrontext">EMAIL:</P>
-                                        <input class="blanco" type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="nombre@gmail.com"><br>
+                </table>
+                <br>
+                <div class="row">
+                    <form method="post" action="" id=formulario class="formomarco">
 
-                                        <label for="phone"></label>
-                                        <br>
+                        {% csrf_token%}
 
-                                        <P class=" jumbotrontext">NUMERO TELEFONICO:</P>
-                                        <small class=" jumbotrontextsm">+56</small>
-                                        <input class="blanco" type="tel" id="phone" name="phone" pattern="[0-9]{9}" placeholder="987654321">
-                                        <br>
+                        <div class="form_group">
 
-                                        <label for="msg"></label><br>
-                                        <P class=" jumbotrontext">MENSAJE</P>
-
-                                        <input class="blancocel" type="text" id="msg" name="message" placeholder="Escribenos un mensaje."><br>
-                                        <br>
-                                        <input class="blanco" type="file" name="imagensubida" accept="image/png, .jpeg, .jpg, image/gif">
-                                        <br>
-                                        <br>
-                                        <input class="botonenviar" type="reset" onclick="alert('SE BORRO TODO LO INSERTADO')" value="-BORRAR TODO-" required>
-                                        <br>
-                                        <br>
-                                        <input class="botonenviar" type="submit" type="button" value="-ENVIAR-" required>
-                                    </div>
-
-                                </form>
-                            </div>
+                            {{form.as_table}}
 
                         </div>
-                    </div>
+                        <br>
+
+                        <input type="submit" class="btn btn-danger" id="enviar" value="modificar" href="{% url 'form_mercancia' %}">
+                        <a type="submit" class="btn btn-primary" role="button " id="enviar" value="modificar" href="{% url 'form_mercancia' %}"> Volver </a>
+                        <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+                        <div id="error" class="alert alert-succes" role="alert">
+
+                            {{mensaje}}
+
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-
-    </section>
-    <hr class="bordhr">
-    <br>
-
-    <section class="masthead text-center text-white">
-        <div class="masthead-content">
-            <div class="container">
-                <h2 class="masthead-subheading mb-0"></h2><a class="btn bottoncolor btn-xl rounded-pill mt-5" role="button" href="#">   Arriba   </a></div>
         </div>
+
     </section>
-    <br>
     <hr class="bordhr">
     <br>
+
     <div class="jumbotronfinal">
         <footer class="py-5 bg-black">
             <div class="container">
@@ -140,6 +136,8 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </footer>
     </div>

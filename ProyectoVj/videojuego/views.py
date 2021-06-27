@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Mercancia
 from django import forms
 from .forms import MercanciaForm
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -35,6 +36,11 @@ def armaduras(request):
 def objetos(request):
     return render(request, 'xartgord/objetos.html')
 
+def cuenta(request):
+    return render(request, 'xartgord/cuenta.html')
+
+
+
 def form_mercancia(request):
 
     mercancia = Mercancia.objects.all()
@@ -42,41 +48,40 @@ def form_mercancia(request):
         'mercancia':mercancia,
         'form':MercanciaForm()
     }
-
-
     if (request.method == 'POST'):
-        formulario=MercanciaForm(request.POST)
+        formulario=MercanciaForm(request.POST, request.FILES)
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Datos Guardados correctamente'
-    
-    return render(request, 'xartgord/form_mercancia.html',datos)   
+        else:
+            formulario=MercanciaForm()
+            datos['mensaje'] = 'ERROR: no se puedo guardar el producto, intentelo mas tarde'
+    return render(request, 'xartgord/form_mercancia.html',datos) 
 
-
-def form_mod_mercancia(request, id):
+def form_modifimerca(request, id):
     mercancia = Mercancia.objects.get(idproducto=id)
     datos = {
         'form':MercanciaForm(instance=mercancia)
     }
-
-    if (request.method == 'POST'):
-
-        formulario=MercanciaForm(data=request.POST, instance=mercancia)
-
+    if(request.method == 'POST'):
+        formulario = MercanciaForm(request.POST, request.FILES, instance=mercancia)
         if formulario.is_valid():
             formulario.save()
-            datos['mensaje']= 'Datos modificados correctamente'
+            datos['mensaje'] = 'Modificado correctamente'
+        else:
+            formulario=MercanciaForm()
+            datos['mensaje'] = 'ERROR: no se puedo guardar el producto, intentelo mas tarde'
+    return render(request, 'xartgord/form_modifimerca.html',datos)  
 
 
-
-
-
-
+def form_eliminar(request, id):
+    mercancia = Mercancia.objects.get(idproducto=id)
+    mercancia.delete()
     
+    return redirect(to='form_mercancia')
 
 
 
-    
 
 
 
