@@ -10,7 +10,7 @@ def __str__(self):
 
 
 class Usuario(models.Model):
-    Rut = models.CharField(max_length=9,primary_key=True, verbose_name='Rut (sin punto ni guión)')
+    Rut = models.CharField(max_length=9,primary_key=True, verbose_name='Rut ')
     Contra = models.CharField(max_length=20,verbose_name='Contraseña')
     Nombre = models.CharField(max_length=30,verbose_name='Nombre')
     Apellidos = models.CharField(max_length=60,verbose_name='Apellidos')
