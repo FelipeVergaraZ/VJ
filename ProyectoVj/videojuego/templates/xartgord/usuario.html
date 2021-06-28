@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-sm-12 card">
+        <div class="card-body sin-margen-bottom">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Rut</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Mail</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Modificar</th>
+                        <th scope="col">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for us in usuarios%}
+                    <tr>
+                        <td scope="col">{{us.Rut}}</td>
+                        <td scope="col">{{us.Nombre}}</td>
+                        <td scope="col">{{us.Apellidos}}</td>
+                        <td scope="col">{{us.Mail}}</td>
+                        <td scope="col">{{us.Telefono}}</td>
+                        <td scope="col">{{us.Direccion}}</td>
+                        <td>
+                            <a href=""><img class="img-mediano" src="" alt="Modificar"></a>
+                        </td>
+                        <td>
+                            <a class="eliminar" href=""><img class="img-mediano" src="" alt="Borrar"></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

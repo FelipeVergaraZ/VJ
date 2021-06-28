@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Mercancia
+from .models import Mercancia, Usuario
 from django import forms
 from .forms import MercanciaForm
+from .forms import UsuarioForm
 from django.contrib import messages
 
 # Create your views here.
@@ -39,7 +40,11 @@ def objetos(request):
 def cuenta(request):
     return render(request, 'xartgord/cuenta.html')
 
+def polerones(request):
+    return render(request, 'xartgord/polerones.html')
 
+def usuario(request):
+    return render(request, 'xartgord/usuario.html')
 
 def form_mercancia(request):
 
@@ -81,10 +86,65 @@ def form_eliminar(request, id):
     return redirect(to='form_mercancia')
 
 
+#LISTA DE USUARIOS 
+def usuarios(request):
+    listausuarios = Usuario.objects.raw('SELECT * FROM POSTRES_Usuario order by Rut') 
+    datos = {
+        'usuarios':listausuarios
+    }
+    return render(request, 'postres/usuarios.html', datos) 
 
+#REGISTRAR USUARIO
+def form_reg_usuario(request):
+    datos = {
+        'form':UsuarioForm()
+    }
+    if(request.method == 'POST'): #post guardar datos
+        formulario = UsuarioForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = 'Registrado correctamente'
+        else:
+            formulario = UsuarioForm()
+            datos['mensaje'] = 'ERROR: No se ha registrado, intente nuevamente'
+    return render(request,'postres/form_reg_usuario.html',datos)
 
+def registro(request):
+    datos = {
+        'form':UsuarioForm()
+    }
+    if(request.method == 'POST'): #post guardar datos
+        formulario = UsuarioForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = 'Registrado correctamente'
+        else:
+            formulario = UsuarioForm()
+            datos['mensaje'] = 'ERROR: No se ha registrado, intente nuevamente'
+    return render(request,'postres/registro.html',datos)
 
+#MODIFICAR USUARIO
+def form_reg_mod_usuario(request,id):
+    usuario = Usuario.objects.get(Rut = id)
+    datos = {
+        'form':UsuarioForm(instance=usuario)
+    }
+    
+    if(request.method == 'POST'): #post guardar datos?
+        formulario = UsuarioForm(request.POST, instance=usuario)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = 'Usuario Modificado correctamente'
+            return redirect(to= "usuarios")
+        else:
+            formulario = UsuarioForm()
+            datos['mensaje'] = 'ERROR: No se ha modificado, intente nuevamente'
+    return render(request,'postres/form_reg_mod_usuario.html',datos)      
 
-
+#ELIMINAR USUARIO
+def form_reg_del_usuario(request, id):
+    usuario = Usuario.objects.get(Rut = id)
+    usuario.delete()
+    return redirect(to="usuarios")
 
 
