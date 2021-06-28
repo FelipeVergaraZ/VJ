@@ -100,7 +100,7 @@ def form_eliminar(request, id):
 
 #LISTA DE USUARIOS 
 def usuarios(request):
-    listausuarios = Usuario.objects.raw('SELECT * FROM POSTRES_Usuario order by Rut') 
+    listausuarios = Usuario.objects.raw('SELECT * FROM Usuario order by Rut') 
     datos = {
         'usuarios':listausuarios
     }
@@ -119,13 +119,14 @@ def form_reg_usuario(request):
         else:
             formulario = UsuarioForm()
             datos['mensaje'] = 'ERROR: No se ha registrado, intente nuevamente'
-    return render(request,'xartgord/form_usuario.html',datos)
+    return render(request,'xartgord/usuario.html',datos)
 
+#post registrar datos usuario
 def registro(request):
     datos = {
         'form':UsuarioForm()
     }
-    if(request.method == 'POST'): #post guardar datos
+    if(request.method == 'POST'):
         formulario = UsuarioForm(request.POST)
         if formulario.is_valid():
             formulario.save()
