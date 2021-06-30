@@ -1,9 +1,11 @@
+from django.core import paginator
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Mercancia, Usuario
 from django import forms
 from .forms import MercanciaForm
 from .forms import UsuarioForm
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
@@ -159,5 +161,8 @@ def form_mod_eliminar_usuario(request, id):
     usuario = Usuario.objects.get(Rut = id)
     usuario.delete()
     return redirect(to="usuarios")
+
+##listar productos
+
 
 

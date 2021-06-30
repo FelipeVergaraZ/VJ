@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('videojuego.urls')),
     path('api/', include('rest_producto.urls')),
+    path('oauth/', include('social_django.urls', namespace='social')),
+
 ]
 
 if settings.DEBUG:
