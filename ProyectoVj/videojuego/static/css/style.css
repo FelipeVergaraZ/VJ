@@ -506,6 +506,7 @@ input:focus:invalid {
     padding-bottom: 50px;
     color: inherit;
     background-color: rgba(0, 0, 0, 0.77);
+    border: 5px solid #246355;
 }
 
 .sobreene {

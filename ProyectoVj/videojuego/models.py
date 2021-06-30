@@ -10,13 +10,16 @@ def __str__(self):
 
 
 class Usuario(models.Model):
-    idUsuario=models.IntegerField(primary_key=True,verbose_name='Id de Usuario')
-    nombreusuario=models.CharField(max_length=20,verbose_name='Nombre del usuario')
-    contraseñausuario=models.CharField(max_length=20,verbose_name='Contraseña del usuario')
-    rango=models.ForeignKey(Rango, on_delete=models.CASCADE)
+    Rut = models.CharField(max_length=9,primary_key=True, verbose_name='Rut ')
+    Contra = models.CharField(max_length=20,verbose_name='Contraseña')
+    Nombre = models.CharField(max_length=30,verbose_name='Nombre')
+    Apellidos = models.CharField(max_length=60,verbose_name='Apellidos')
+    Mail = models.CharField(max_length=100,verbose_name='Mail')
+    Telefono = models.IntegerField(verbose_name='Teléfono')
+    Direccion = models.CharField(max_length=300,verbose_name='Dirección')
 
-def __str__(self):
-    return self.nombreusuario
+    def __str__(self):
+        return self.Rut
 
 class Categoria(models.Model):
     idCategoria = models.IntegerField(primary_key=True,verbose_name='Id de Categoria')
@@ -37,4 +40,4 @@ class Mercancia(models.Model):
 def __str__(self):
     return self.nombreproducto
 
-    
+
