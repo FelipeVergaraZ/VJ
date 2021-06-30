@@ -159,11 +159,12 @@
                         <a class="blanco btn btn-success center-block" role="button " href="{% url 'form_mercancia' %}"> Aceptar </a>
                         <br>
                         <a class="blanco btn btn-info center-block" role="button " href="{% url 'registro' %}"> Crear Usuario </a>
-                        <br>
                         <hr>
                         <a class="blanco btn btn-primary center-block" role="button " href="{% url 'social:begin' 'facebook' %}">Login con facebook</a>
                         <hr>
                         <a class="blanco btn btn-danger center-block" role="button " href="{% url 'social:begin' 'google-oauth2' %}">Login con google</a>
+                        <hr>
+                        <a type="submit" class="blanco btn btn-primary center-block" role="button " id="enviar" value="modificar" href="{% url 'form_mercancia' %}"> Volver </a>
 
                     </div>
                 </form>

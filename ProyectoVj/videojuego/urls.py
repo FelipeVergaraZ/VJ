@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import cuentas, form_reg_usuario, form_usuario, home, items, polerones, registro, usuario
+from .views import cuentas, form_reg_usuario, form_usuario, home, items, listausuarios, polerones, registro, usuario
 from .views import personajes, contact
 from .views import enemigos, mercancia
 from .views import armaduras, armas, home
@@ -29,6 +29,7 @@ urlpatterns = [
     path('form_usuario/',form_usuario,name='from_usuario'),
     path('form_mercancia/',form_mercancia,name='form_mercancia'),
     path('cuentas/',cuentas,name='cuentas'),
+    path('listausuarios/',listausuarios,name='listausuarios'),
     path('form_modifimerca/<id>/',form_modifimerca,name='form_modifimerca'),
     path('form_eliminar/<id>/',form_eliminar,name='form_eliminar'),
     

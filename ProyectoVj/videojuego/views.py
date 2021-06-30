@@ -55,7 +55,8 @@ def registro(request):
 
 def form_mod_usuario(request):
     return render(request, 'xartgord/form_mod_usuario.html')
-
+def listausuarios(request):
+    return render(request, 'xartgord/listausuarios.html')
 
 
 
