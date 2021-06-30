@@ -98,7 +98,11 @@
                     <a href="{% url 'cuenta' %}" class="btn center btn-danger btn-l" id="cancelar" name="cancelar">Volver</a>
                     <input type="reset" class="btn btn-primary btn-l" id="limnpiar" value="Limpiar">
                     <div id="error" class="alert-success" role="alert">
-                        {{ mensaje }}
+                        {% if messages %} {% for message in messages %}
+                        <div class="notification {{ message.tags}}">
+                            {{ message }}
+                        </div>
+                        {% endfor %} {% endif %}
                     </div>
                 </form>
             </div>

@@ -159,3 +159,5 @@ AUTHENTICATION_BACKENDS = (
 'django.contrib.auth.backends.ModelBackend',
 'social_core.backends.google.GoogleOAuth2',
 )
+
+LOGIN_REDIRECT_URL = 'feed'
