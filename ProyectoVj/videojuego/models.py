@@ -25,8 +25,8 @@ class Categoria(models.Model):
     idCategoria = models.IntegerField(primary_key=True,verbose_name='Id de Categoria')
     nombreCategoria= models.CharField(max_length=50,verbose_name='Nombre deL Categoria')
 
-def __str__(self):
-    return self.nombreCategoria
+    def __str__(self):
+        return self.nombreCategoria
 
 
 class Mercancia(models.Model):
@@ -37,7 +37,7 @@ class Mercancia(models.Model):
     imagen=models.ImageField(upload_to='Imagenes',null=True)
     categoria=models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
-def __str__(self):
-    return self.nombreproducto
+    def __str__(self):
+        return self.nombreproducto
 
 
