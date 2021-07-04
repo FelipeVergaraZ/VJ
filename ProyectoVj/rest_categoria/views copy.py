@@ -4,34 +4,24 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
-from videojuego.models import Mercancia
-from .serializers import MercanciaSerializer
+from videojuego.models import Categoria
+from .serializers import CategoriaSerializer
 @csrf_exempt
 @api_view(['GET','POST'])
 
 
 
-def lista_mercancia(request):
+def lista_categoria(request):
     if request.method == 'GET':
-        mercancia = Mercancia.objects.all()
-        serializer = MercanciaSerializer(mercancia, many=True)
+        categoria = Categoria.objects.all()
+        serializer = CategoriaSerializer(categoria, many=True)
         return Response(serializer.data)
 
     elif request.method == 'POST':
         data = JSONParser().parse(request)
-        serializer = MercanciaSerializer(data=data)
+        serializer = CategoriaSerializer(data=data)
         if(serializer.is_valid()):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-
-
-
-
-
-
-
-

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'videojuego',
     'rest_producto',
+    'rest_categoria',
 ]
 
 MIDDLEWARE = [
@@ -134,6 +135,8 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 
 
 import os

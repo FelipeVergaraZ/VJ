@@ -1,6 +1,11 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Mercancia,Usuario
+from .models import Mercancia,Usuario,Categoria
+
+class CategoriaForm(ModelForm):
+    class Meta:
+        model = Categoria
+        fields = ['idCategoria','nombreCategoria']
 
 class MercanciaForm(ModelForm):
     class Meta:
