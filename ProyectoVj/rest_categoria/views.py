@@ -15,7 +15,7 @@ from rest_framework.permissions import IsAuthenticated
 @permission_classes((IsAuthenticated,))
 def lista_categoria(request):
     if request.method == 'GET':
-        categoria = Categoria.objects.all()
+        categoria = Categoria.objects.all().order_by('idCategoria')
         serializer = CategoriaSerializer(categoria, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':

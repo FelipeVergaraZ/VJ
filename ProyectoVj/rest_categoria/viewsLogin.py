@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import serializers, status
-from rest_framework.decorators import api_view , permission_classes
+from rest_framework.decorators import api_view 
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
@@ -8,8 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
 from rest_framework.authtoken.models import Token
 
-from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+
 
 @api_view(['POST'])
 def login(request):
@@ -17,6 +16,7 @@ def login(request):
 
     username = data['username'] #lo que esta entre comillas tiene que ser lo mismo que en el HTML
     password = data['password']
+    print(data)
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:
@@ -28,4 +28,5 @@ def login(request):
     
     #crear o recuperar el token
     token, created = Token.objects.get_or_create(user=user)
+    print(token.key)
     return Response(token.key)
