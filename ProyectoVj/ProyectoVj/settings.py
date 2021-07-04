@@ -170,5 +170,5 @@ AUTHENTICATION_BACKENDS = (
 'social_core.backends.google.GoogleOAuth2',
 )
 
-LOGIN_REDIRECT_URL = 'feed'
-LOGOUT_REDIRECT_URL = 'feed'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
