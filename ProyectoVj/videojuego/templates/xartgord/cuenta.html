@@ -98,18 +98,6 @@
     .marcoinicio {
         width: 100%;
     }
-    
-    .cuartiaria {
-        background-color: #4CAF50;
-        /* Green */
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-    }
 </style>
 
 
@@ -151,22 +139,16 @@
                     <div class="form-group">
                         <label class="col-xs-12" for="password"><h4>Password</h4></label>
                         <div class="col-xs-10 col-xs-offset-1">
-                            <input type="password" id="password" class="form-control Input">
+                            <input type="password" id="password" class="form-control col-xs-12 Input">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <a class="blanco btn btn-success center-block" role="button " href="{% url 'form_mercancia' %}"> Aceptar </a>
+                        <a class="blanco btn btn-danger center-block" role="button " href="{% url 'form_mercancia' %}"> Aceptar </a>
                         <br>
-                        <a class="blanco btn btn-info center-block" role="button " href="{% url 'registro' %}"> Crear Usuario </a>
-                        <hr>
-                        <a class="blanco btn btn-primary center-block" role="button " href="{% url 'social:begin' 'facebook' %}">Login con facebook</a>
-                        <hr>
-                        <a class="blanco btn btn-danger center-block" role="button " href="{% url 'social:begin' 'google-oauth2' %}">Login con google</a>
-                        <hr>
-                        <a type="submit" class="blanco btn btn-primary center-block" role="button " id="enviar" value="modificar" href="{% url 'form_mercancia' %}"> Volver </a>
-
+                        <a class="blanco btn btn-danger center-block" role="button " href="{% url 'registro' %}"> Crear Usuario </a>
                     </div>
+
                 </form>
                 <br>
             </fieldset>

@@ -1,13 +1,9 @@
-from django.core import paginator
-from .models import *
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Mercancia, Usuario
 from django import forms
 from .forms import MercanciaForm
 from .forms import UsuarioForm
-#from django.contrib.auth.forms import UsuarioForm
 from django.contrib import messages
-from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
@@ -55,19 +51,14 @@ def registro(request):
 
 def form_mod_usuario(request):
     return render(request, 'xartgord/form_mod_usuario.html')
-def listausuarios(request):
-    return render(request, 'xartgord/listausuarios.html')
 
-
-
-def cuentas(request):
-    return render(request, 'xartgord/cuentas.html')
 def form_usuario(request):
     return render(request, 'xartgord/form_usuario.html')
 def listas(request):
     return render(request, 'xartgord/listas.html')
 
 def form_mercancia(request):
+
     mercancia = Mercancia.objects.all()
     datos = {
         'mercancia':mercancia,
@@ -107,7 +98,13 @@ def form_eliminar(request, id):
 #agregar polerones
 
 
-
+#LISTA DE USUARIOS 
+def usuarios(request):
+    listausuarios = Usuario.objects.raw('SELECT * FROM Usuario order by Rut') 
+    datos = {
+        'usuarios':listausuarios
+    }
+    return render(request, 'xartgord/usuario.html', datos) 
 
 #REGISTRAR USUARIO
 def form_reg_usuario(request):
@@ -134,8 +131,6 @@ def registro(request):
         if formulario.is_valid():
             formulario.save()
             datos['mensaje'] = 'Registrado correctamente'
-            messages.success(request, 'Registrado correctamente')
-            return redirect('http://127.0.0.1:8000/form_mercancia/')
         else:
             formulario = UsuarioForm()
             datos['mensaje'] = 'ERROR: No se ha registrado, intente nuevamente'
@@ -165,22 +160,4 @@ def form_mod_eliminar_usuario(request, id):
     usuario.delete()
     return redirect(to="usuarios")
 
-##listar productos
 
-
-def lista_mer(request, id):
-    mercancia_page = Paginator.objects.all()
-    mercancia = mercancia_page.get_page(1)
-
-    return render(request,'xartgord/form_mercancia.html', {'mercancia':mercancia})   
-
-
-def profile(request):
-    user = request.user
-    if request.method == "POST":
-        signupform = SignUpForm(data=request.POST, instance=request.user)
-        if signupform.is_valid():
-            signupform.save()
-            return HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
-
-    return render(request, 'profile.html', "context stuff here")
