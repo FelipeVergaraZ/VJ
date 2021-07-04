@@ -29,6 +29,12 @@ ALLOWED_HOSTS = []
 
 MESSAGE_STORAGE="django.contrib.messages.storage.cookie.CookieStorage"
 
+
+SOCIAL_AUTH_FACEBOOK_KEY = '604901760484253'
+SOCIAL_AUTH_FACEBOOK_SECRET = '477031eb214233ad3110527c42d50ed4'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '491232364144-haij5kl3slf62pq62pk11tllvhp5cpr6.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'C9X6yselI_jQpFeM4EyIIFLg'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,7 +47,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'videojuego',
     'rest_producto',
+    'social_django',
+    'rest_framework.authtoken',
     'rest_categoria',
+    
 ]
 
 MIDDLEWARE = [
@@ -52,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'ProyectoVj.urls'
@@ -67,10 +77,19 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+
             ],
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+    'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 WSGI_APPLICATION = 'ProyectoVj.wsgi.application'
 
@@ -137,8 +156,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
-
 import os
 
 MEDIA_URL = '/media/'
@@ -146,3 +163,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 
 
 
+AUTHENTICATION_BACKENDS = (
+'social_core.backends.facebook.FacebookOAuth2',
+'social_core.backends.facebook.FacebookAppOAuth2',
+'django.contrib.auth.backends.ModelBackend',
+'social_core.backends.google.GoogleOAuth2',
+)
+
+LOGIN_REDIRECT_URL = 'feed'
+LOGOUT_REDIRECT_URL = 'feed'

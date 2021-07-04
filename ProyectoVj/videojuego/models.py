@@ -5,8 +5,8 @@ class Rango(models.Model):
     idRango = models.IntegerField(primary_key=True,verbose_name='Id de Rango')
     nombreRango= models.CharField(max_length=50,verbose_name='Nombre deL Rango')
 
-def __str__(self):
-    return self.nombreRango
+    def __str__(self):
+        return self.nombreRango
 
 
 class Usuario(models.Model):
