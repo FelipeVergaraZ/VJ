@@ -32,7 +32,7 @@
     
     .formulario:hover {
         transition: .8s;
-        background-color: rgba(0, 0, 0, 0.671);
+        background-color: rgba(219, 219, 219, 0.671);
     }
     
     .logo {
@@ -132,25 +132,25 @@
                     <h3>INICIAR SECION</h3>
                 </legend>
                 {% block content %}
-                <form class="form" method="post" class="marcoinicio form-horizontal text-blanco">
-                    <div>
+                <form class="form" method="post" class="marcoinicio form-horizontal ">
+                    <div class="text-blanco">
                         {% csrf_token %} {{ form.as_p }}
                     </div>
                     <button type="submit" id="submit">Registrarse</button> {% endblock %}
                     <br>
-                    <div class="form-group">
 
-                        <br>
-                        <a class="blanco btn btn-info center-block" role="button " href="{% url 'register' %}"> Crear Usuario </a>
-                        <hr>
-                        <a class="blanco btn btn-primary center-block" role="button " href="{% url 'social:begin' 'facebook' %}">Login con facebook</a>
-                        <hr>
-                        <a class="blanco btn btn-danger center-block" role="button " href="{% url 'social:begin' 'google-oauth2' %}">Login con google</a>
-                        <hr>
-                        <a type="submit" class="blanco btn btn-primary center-block" role="button " id="enviar" value="modificar" href="{% url 'home' %}"> Volver </a>
-                    </div>
                 </form>
+                <div class="form-group">
 
+                    <br>
+                    <a class="blanco btn btn-info center-block" role="button " href="{% url 'register' %}"> Crear Usuario </a>
+                    <hr>
+                    <a class="blanco btn btn-primary center-block" role="button " href="{% url 'social:begin' 'facebook' %}">Login con facebook</a>
+                    <hr>
+                    <a class="blanco btn btn-danger center-block" role="button " href="{% url 'social:begin' 'google-oauth2' %}">Login con google</a>
+                    <hr>
+                    <a type="submit" class="blanco btn btn-primary center-block" role="button " id="enviar" value="modificar" href="{% url 'home' %}"> Volver </a>
+                </div>
                 <br>
             </fieldset>
 
