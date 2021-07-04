@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import cuentas, form_reg_usuario, form_usuario, home, items, listausuarios, polerones, registro, usuario
+from .views import cuentas, form_reg_usuario, form_usuario, home, items, listausuarios, polerones, register, registro, usuario,login2
 from .views import personajes, contact
 from .views import enemigos, mercancia
 from .views import armaduras, armas, home
@@ -7,6 +7,7 @@ from .views import personajes, contact, items
 from .views import enemigos, mercancia, objetos,cuenta
 from .views import form_mercancia, form_modifimerca,form_eliminar
 from django.contrib.auth.views import LoginView, LogoutView
+from . import views
 
 urlpatterns = [
     path('',home,name='home'),
@@ -20,10 +21,15 @@ urlpatterns = [
     path('items/',items,name='items'),
     path('cuenta/',cuenta,name='cuenta'),
     path('polerones/',polerones,name='polerones'),
-    path('registro/',registro,name='registro'),
+    
     path('usuario/',usuario,name='usuario'),
 
-    path('login/', LoginView.as_view(template_name='xartgord/registro.html'), name='login'),
+    path('login/', LoginView.as_view(template_name='xartgord/login.html'), name='login'),
+    path('logout/', LogoutView.as_view(template_name='xartgord/logout.html'), name='logout'),
+    path('registro/',registro,name='registro'),
+    path('login2/',login2,name='login2'),
+    path('register/',views.register,name='register'),
+
 
     path('form_mod_usuario/',form_reg_usuario,name='form_mod_usuario'),
     path('form_usuario/',form_usuario,name='from_usuario'),
