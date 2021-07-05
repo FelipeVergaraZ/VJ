@@ -11,7 +11,6 @@ from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 @csrf_exempt
 @api_view(['GET','POST'])
-
 @permission_classes((IsAuthenticated,))
 def lista_categoria(request):
     if request.method == 'GET':
@@ -30,7 +29,7 @@ def lista_categoria(request):
 #DETALLES DE LAS CATEGORIAS EN JSON (OBTENER, MODIFICAR Y BORRAR)
 @api_view(['GET','PUT','DELETE'])
 @permission_classes((IsAuthenticated,))
-def detalle_categoria(request,id):
+def detalle_categoria(request,id): 
     try:
         categoria = Categoria.objects.get(ID_CATPROD=id)
     except Categoria.DoesNotExist:
@@ -47,7 +46,5 @@ def detalle_categoria(request,id):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
-        if(categoria.delete()):
-            return Response(status=status.HTTP_200_OK)
-        else:
+            categoria.delete() 
             return Response(status=status.HTTP_204_NOT_CONTENT)
