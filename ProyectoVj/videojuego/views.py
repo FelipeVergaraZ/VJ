@@ -196,11 +196,10 @@ def lista_mer(request, id):
 
 
 
-    return render(request, 'profile.html', "context stuff here")
 
 def loginUsu(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
     print(username)
     print(password)
-    return render(request, 'registration/login.html')
+    return render(request, 'registration/loginn.html')

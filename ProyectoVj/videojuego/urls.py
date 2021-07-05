@@ -24,7 +24,7 @@ urlpatterns = [
     
     path('usuario/',usuario,name='usuario'),
 
-    path('login/', LoginView.as_view(template_name='xartgord/login.html'), name='login'),
+    path('loginn/', LoginView.as_view(template_name='xartgord/loginn.html'), name='loginn'),
     path('logout/', LogoutView.as_view(template_name='xartgord/logout.html'), name='logout'),
     path('registro/',registro,name='registro'),
     path('login2/',login2,name='login2'),
