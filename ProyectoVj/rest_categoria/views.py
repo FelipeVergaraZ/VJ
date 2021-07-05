@@ -26,7 +26,6 @@ def lista_categoria(request):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-#DETALLES DE LAS CATEGORIAS EN JSON (OBTENER, MODIFICAR Y BORRAR)
 @api_view(['GET','PUT','DELETE'])
 @permission_classes((IsAuthenticated,))
 def detalle_categoria(request,id): 
