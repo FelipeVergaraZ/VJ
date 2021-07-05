@@ -8,7 +8,7 @@ from videojuego.models import Categoria
 from rest_categoria.serializers import CategoriaSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-# Create your views here.
+
 @csrf_exempt
 @api_view(['GET','POST'])
 @permission_classes((IsAuthenticated,))
@@ -26,12 +26,11 @@ def lista_categoria(request):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-#DETALLES DE LAS CATEGORIAS EN JSON (OBTENER, MODIFICAR Y BORRAR)
 @api_view(['GET','PUT','DELETE'])
 @permission_classes((IsAuthenticated,))
 def detalle_categoria(request,id): 
     try:
-        categoria = Categoria.objects.get(ID_CATPROD=id)
+        categoria = Categoria.objects.get(idCategoria=id)
     except Categoria.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':

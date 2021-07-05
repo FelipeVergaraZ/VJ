@@ -52,7 +52,7 @@ def lista_mercancia(request):
 @api_view(['GET','PUT','DELETE'])
 def detalle_categoria(request,id):
     try:
-        mercancia = Mercancia.objects.get(ID_PROD=id)
+        mercancia = Mercancia.objects.get(idCategoria=id)
     except Mercancia.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':
