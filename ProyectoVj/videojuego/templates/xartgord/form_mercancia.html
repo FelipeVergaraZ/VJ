@@ -144,7 +144,7 @@
                 <a class="indemenu" href="{% url 'enemigos' %}">ENEMIGOS</a>
                 <a class="indemenu" href="{% url 'contact' %}">CONTACTANOS</a>
                 <a class="indemenu" href="{% url 'mercancia' %}">PRODUCTOS</a>
-                <div> {% if request.user.is_authenticated and user.username == 'admin' %}
+                <div> {% if request.user.is_authenticated and user.username == 'admin1' %}
                     <a class="indemenu" href="{% url 'form_mercancia' %}">LISTA PRODUCTO</a> {% endif %}
                 </div>
                 <div>
