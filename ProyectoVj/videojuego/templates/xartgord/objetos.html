@@ -22,7 +22,7 @@
 
     <header class="menu-fixed">
         <div class="bordmenu">
-            <script src="java/script.js"></script>
+            <script src="{% static 'java/script.js' %}"></script>
             <div class="topnav " id="myTopnav">
                 <a class="active" class="indemenu" href="{% url 'home' %}"><img src="{% static 'img/icons_logo.png' %}" width="25px"> XARTGORD </a>
                 <a class="indemenu" href="{% url 'personajes' %}">PERSONAJES</a>
@@ -30,6 +30,14 @@
                 <a class="indemenu" href="{% url 'enemigos' %}">ENEMIGOS</a>
                 <a class="indemenu" href="{% url 'contact' %}">CONTACTANOS</a>
                 <a class="indemenu" href="{% url 'mercancia' %}">PRODUCTOS</a>
+                <div> {% if request.user.is_authenticated and user.username == 'admin1' %}
+                    <a class="indemenu" href="{% url 'form_mercancia' %}">LISTA PRODUCTO</a> {% endif %}
+                </div>
+                <div>
+                    {% if request.user.is_authenticated %}
+                    <a class="inicioderecha" href="{% url 'logout' %}">cerrar secion</a> {% else %}
+                    <a class="inicioderecha" href="{% url 'loginn' %}">iniciar secion</a> {% endif %}
+                </div>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -44,7 +52,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 order-lg-2">
                     <div class="jumbotron3 ">
-                        <div class="p-5"><img class="rounded img-fluid" src="img/Items/Items/comida.png" width="1000" height="100"></div>
+                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/comida.png' %}" width="1000" height="100"></div>
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
@@ -66,7 +74,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 order-lg-2">
                     <div class="jumbotron3">
-                        <div class="p-5"><img class="rounded img-fluid" src="img/Items/Items/pociones.jpg" width="1000" height="100"></div>
+                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/pociones.jpg' %}" width="1000" height="100"></div>
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
@@ -90,7 +98,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 order-lg-2">
                     <div class="jumbotron3">
-                        <div class="p-5"><img class="rounded img-fluid" src="img/Items/Items/minerales.png" width="1000" height="100"></div>
+                        <div class="p-5"><img class="rounded img-fluid" src="{% static 'img/minerales.png' %}" width="1000" height="100"></div>
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
@@ -106,21 +114,18 @@
             </div>
         </article>
     </div>
-    <hr>
-    <section class="masthead text-center text-white">
-        <div class="masthead-content">
-            <div class="container">
-                <h2 class="masthead-subheading mb-0"></h2><a class="btn btn-primary btn-xl rounded-pill mt-5" role="button" href="#">   Arriba   </a></div>
+    <hr class="bordhr">
+    <section class="masthead text-center text-white ">
+        <div class="masthead-content ">
+            <div class="container ">
+                <h2 class="masthead-subheading mb-0 "></h2><a class="btn btn-primary btn-xl rounded-pill mt-5 botonarmadura " role="button " href="{% url 'armaduras' %}">   Armaduras  </a> </h2><a class="btn bottoncolor btn-xl rounded-pill mt-5 " role="button " href="# ">   Arriba   </a>                </h2>
+                <a class="btn btn-primary btn-xl rounded-pill mt-5 botonarmadura " role="button " href="{% url 'armas' %}"> Armas  </a>
+            </div>
         </div>
     </section>
-    <section class="masthead text-center text-white">
-        <h2 class="masthead-subheading mb-0"></h2><a class="btn btn-primary btn-xl rounded-pill mt-5 botonarmadura" role="button" href="armaduras.html">   Armaduras   </a></div>
-    </section>
-    <section class="masthead text-center text-white">
-        <h2 class="masthead-subheading mb-0"></h2><a class="btn btn-primary btn-xl rounded-pill mt-5 botonarmadura" role="button" href="armas.html">   Armas   </a></div>
-    </section>
     <br>
-    <hr>
+    <hr class="bordhr">
+    <br>
     <div class="jumbotronfinal">
         <footer class="py-5 bg-black">
             <div class="container">
@@ -128,7 +133,7 @@
                 <p class="text-center ">Loremm ipsum dolor sit amet consectetur adipisicing elit. Explicabo quos eveniet, voluptate modi delectus optio ipsam, consectetur ad iste fugiat libero eligendi repellat, esse hic commodi atque quia inventore officiis!</p>
                 <br>
                 <div class="iconoo">
-                    <div class="iconoo" class=""><img class="rounded img-fluid" src="img/iconoo.png"></div>
+                    <div class="iconoo" class=""><img class="rounded img-fluid" src="{% static 'img/iconoo.png' %}"></div>
                 </div>
                 <div class="container">
                     <div>
@@ -136,13 +141,13 @@
                             <div class="col-lg-6 order-lg-1">
                                 <div class="p-5">
                                     <a class="nav-link"><a class="colti" href="https://www.instagram.com/?hl=es-la"  target="blank">Instragram</a>
-                                    <img class="ico" src="img/icons8-instagram.gif" width="30px" />
+                                    <img class="ico" src=" {% static 'img/icons8-instagram.gif' %} " width="30px" />
                                     <a class="nav-link"><a class="colti" href="https://www.facebook.com" target="blank" >Facebook</a>
-                                    <img class="ico" src="img/icons8-facebook-rodeado-de-círculo.gif" width="30px" />
+                                    <img class="ico" src=" {% static 'img/icons8-facebook-rodeado-de-círculo.gif'%}" width="30px" />
                                     <a class="nav-link"><a class="colti" href="https://web.whatsapp.com" target="blank" >Whatsapp</a>
-                                    <img class="ico" src="img/icons8-whatsapp.gif" width="20px" />
+                                    <img class="ico" src=" {% static 'img/icons8-whatsapp.gif' %} " width="20px" />
                                     <a class="nav-link"><a class="colti" href="https://twitter.com" target="blank">twitter</a>
-                                    <img class="ico" src="img/icons8-twitter.gif" width="30px" />
+                                    <img class="ico" src=" {% static 'img/icons8-twitter.gif' %} " width="30px" />
                                 </div>
                             </div>
                         </div>

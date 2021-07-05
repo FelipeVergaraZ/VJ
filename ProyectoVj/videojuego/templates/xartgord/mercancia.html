@@ -23,7 +23,7 @@
         </video>
     <header class="menu-fixed">
         <div class="bordmenu">
-            <script src="java/script.js"></script>
+            <script src="{% static 'java/script.js' %}"></script>
             <div class="topnav " id="myTopnav">
                 <a class="active" class="indemenu" href="{% url 'home' %}"><img src="{% static 'img/icons_logo.png' %}" width="25px"> XARTGORD </a>
                 <a class="indemenu" href="{% url 'personajes' %}">PERSONAJES</a>
@@ -31,16 +31,25 @@
                 <a class="indemenu" href="{% url 'enemigos' %}">ENEMIGOS</a>
                 <a class="indemenu" href="{% url 'contact' %}">CONTACTANOS</a>
                 <a class="indemenu" href="{% url 'mercancia' %}">PRODUCTOS</a>
+                <div> {% if request.user.is_authenticated and user.username == 'admin1' %}
+                    <a class="indemenu" href="{% url 'form_mercancia' %}">LISTA PRODUCTO</a> {% endif %}
+                </div>
+                <div>
+                    {% if request.user.is_authenticated %}
+                    <a class="inicioderecha" href="{% url 'logout' %}">cerrar secion</a> {% else %}
+                    <a class="inicioderecha" href="{% url 'loginn' %}">iniciar secion</a> {% endif %}
+                </div>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
                 </a>
             </div>
         </div>
     </header>
+
     <br><br>
     <div class="container">
         <div class="jumbotrontene">
-            <h1 class="centroene">ARTICULOS EN VENTA </h1>
+            <h1 class="centroene"> VENTA </h1>
         </div>
     </div>
     <br><br>
@@ -48,17 +57,17 @@
 
         <div class="card">
             <figure>
-                <img src="img/poleron.jpg">
+                <img src="{% static 'img/poleron.jpg'%}">
             </figure>
             <div class="contenido-card">
                 <h3>POLERONES</h3>
                 <p>Podemos crear la identidad corporativa de tu empresa. Diseño , Maquetación de folletos, Catálogos, Papelería y mucho más.</p>
-                <a href="#">VER</a>
+                <a href="{% url 'polerones' %}">VER</a>
             </div>
         </div>
         <div class="card">
             <figure>
-                <img src="img/polera.jpg">
+                <img src="{% static 'img/polera.jpg'%}">
             </figure>
             <div class="contenido-card">
                 <h3>POLERAS</h3>
@@ -68,7 +77,7 @@
         </div>
         <div class="card">
             <figure>
-                <img src="img/figurita.jpg">
+                <img src="{% static 'img/figurita.jpg'%}">
             </figure>
             <div class="contenido-card">
                 <h3>FIGURITAS</h3>
@@ -82,10 +91,64 @@
         <div class="jumbotrontene">
             <h1 class="centroene">TIENDA:</h1>
             <div id="map"></div>
-            <script src="script.js"></script>
+            <script src="{% static 'java/script.js' %}"></script>
+
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy"></script>
         </div>
     </div>
+    <br>
+    <section class="page-section cta">
+        <div class="jumbotrontene" class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <div class="cta-inner bg-faded text-center rounded text-white">
+                        <h2 class="section-heading mb-5">
+                            <span class="section-heading-upper">HORARIO</span>
+                            <span class="section-heading-lower">DE LA TIENDA </span>
+                        </h2>
+                        <ul class="list-unstyled list-hours mb-5 text-left mx-auto text-white">
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                DOMINGO
+                                <span class="ms-auto">CERRADO</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                LUNES
+                                <span class="ms-auto">7:00 AM to 8:00 PM</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                MARTES
+                                <span class="ms-auto">7:00 AM to 8:00 PM</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                MIERCOLES
+                                <span class="ms-auto">7:00 AM to 8:00 PM</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                JUEVES
+                                <span class="ms-auto">7:00 AM to 8:00 PM</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                VIERNES
+                                <span class="ms-auto">7:00 AM to 8:00 PM</span>
+                            </li>
+                            <li class="list-unstyled-item list-hours-item d-flex">
+                                SABADO
+                                <span class="ms-auto">9:00 AM to 5:00 PM</span>
+                            </li>
+                        </ul>
+
+                        <p class="mb-0">
+                            <small><em>Llame en cualquier momento </em></small>
+                            <br /> (+569) 99999999
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'java/script.js' %}"></script>
+
+
     <br>
     <hr class="bordhr">
     <br>
@@ -96,7 +159,7 @@
                 <p class="text-center ">Loremm ipsum dolor sit amet consectetur adipisicing elit. Explicabo quos eveniet, voluptate modi delectus optio ipsam, consectetur ad iste fugiat libero eligendi repellat, esse hic commodi atque quia inventore officiis!</p>
                 <br>
                 <div class="iconoo">
-                    <div class="iconoo" class=""><img class="rounded img-fluid" src="img/iconoo.png"></div>
+                    <div class="iconoo" class=""><img class="rounded img-fluid" src="{% static 'img/iconoo.png' %}"></div>
                 </div>
                 <div class="container">
                     <div>
@@ -104,13 +167,13 @@
                             <div class="col-lg-6 order-lg-1">
                                 <div class="p-5">
                                     <a class="nav-link"><a class="colti" href="https://www.instagram.com/?hl=es-la"  target="blank">Instragram</a>
-                                    <img class="ico" src="img/icons8-instagram.gif" width="30px" />
+                                    <img class="ico" src=" {% static 'img/icons8-instagram.gif' %} " width="30px" />
                                     <a class="nav-link"><a class="colti" href="https://www.facebook.com" target="blank" >Facebook</a>
-                                    <img class="ico" src="img/icons8-facebook-rodeado-de-círculo.gif" width="30px" />
+                                    <img class="ico" src=" {% static 'img/icons8-facebook-rodeado-de-círculo.gif'%}" width="30px" />
                                     <a class="nav-link"><a class="colti" href="https://web.whatsapp.com" target="blank" >Whatsapp</a>
-                                    <img class="ico" src="img/icons8-whatsapp.gif" width="20px" />
+                                    <img class="ico" src=" {% static 'img/icons8-whatsapp.gif' %} " width="20px" />
                                     <a class="nav-link"><a class="colti" href="https://twitter.com" target="blank">twitter</a>
-                                    <img class="ico" src="img/icons8-twitter.gif" width="30px" />
+                                    <img class="ico" src=" {% static 'img/icons8-twitter.gif' %} " width="30px" />
                                 </div>
                             </div>
                         </div>

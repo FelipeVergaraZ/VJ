@@ -118,7 +118,7 @@ body {
 
 .jumbotron {
     padding: 3px 10px;
-    border: rgb(0, 0, 0) 5px solid;
+    border: 5px solid #246355;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     padding-top: 30px;
@@ -150,6 +150,10 @@ body {
     color: #000;
 }
 
+.text-blanco {
+    color: rgb(255, 255, 255);
+}
+
 .jumbotron:hover {
     box-shadow: 5px 5px 20px rgb(0, 0, 0);
     transform: translateY(-3%);
@@ -157,7 +161,7 @@ body {
 
 .jumbotron1 {
     padding: 3px 10px;
-    border: rgb(0, 0, 0) 5px solid;
+    border: 5px solid #246355;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     padding-top: 30px;
@@ -506,6 +510,7 @@ input:focus:invalid {
     padding-bottom: 50px;
     color: inherit;
     background-color: rgba(0, 0, 0, 0.77);
+    border: 5px solid #246355;
 }
 
 .sobreene {
@@ -645,3 +650,83 @@ input:focus:invalid {
 
 
 /*producto*/
+
+table {
+    background-color: rgb(255, 255, 255);
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 20px;
+}
+
+thead {
+    background-color: #246355;
+    border-bottom: solid 5px #0F362D;
+    color: white;
+    width: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+tr:hover td {
+    background-color: #369681;
+    color: white;
+}
+
+.titulotabla {
+    text-align: center;
+}
+
+.jumbotronblack2 {
+    border: rgb(0, 0, 0) 5px solid;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: inherit;
+    background-color: rgba(224, 223, 223, 0.883);
+    width: 100%;
+    padding: 40px;
+}
+
+.rojoeliminar {
+    color: #900;
+}
+
+.verdeeditar {
+    color: rgb(22, 177, 2);
+}
+
+.inicioderecha {
+    position: relative;
+    text-align: right
+}
+
+.formomarco {
+    width: 100%;
+    border: rgb(0, 0, 0) 5px double;
+    color: inherit;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+.listaproducto {
+    width: 100%;
+    border: rgb(0, 0, 0) 5px double;
+    color: inherit;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    padding-top: 30px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    margin-bottom: 40px;
+}
+
+.notification {
+    width: 100%;
+    text-align: center;
+}
